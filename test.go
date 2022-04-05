@@ -1,18 +1,21 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	var first, second int = 12, 42
-	var p *int
+	names := [4]string{
+		"John",
+		"Paul",
+		"George",
+		"Ringo",
+	}
+	fmt.Println(names)
 
-	p = &first
-	fmt.Println("p is", *p)
-	p = &second
-	fmt.Println("p is now", *p)
-	*p = 1024
-	fmt.Println("and now p =", *p)
+	a := names[0:2]
+	b := names[1:3]
+	fmt.Println(a, b)
 
+	b[0] = "XXX"
+	fmt.Println(a, b)
+	fmt.Println(names)
 }
