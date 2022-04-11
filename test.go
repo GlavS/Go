@@ -1,21 +1,20 @@
 package main
 
-import "fmt"
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+
+	result := make([][]uint8, dy)
+	for i := 0; i < dy; i++ {
+		row := make([]uint8, dx)
+		for j := 0; j < dx; j++ {
+			row[j] = uint8(i ^ j)
+		}
+		result[i] = row
+	}
+	return result
+}
 
 func main() {
-	names := [4]string{
-		"John",
-		"Paul",
-		"George",
-		"Ringo",
-	}
-	fmt.Println(names)
-
-	a := names[0:2]
-	b := names[1:3]
-	fmt.Println(a, b)
-
-	b[0] = "XXX"
-	fmt.Println(a, b)
-	fmt.Println(names)
+	pic.Show(Pic)
 }
